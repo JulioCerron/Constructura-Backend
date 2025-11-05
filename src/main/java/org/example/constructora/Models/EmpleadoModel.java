@@ -10,36 +10,34 @@ public class EmpleadoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idmpleado;
+    @Column(name="ID_Empleado")
+    private Long idempleado;
     private String nombre;
     private String apellido;
     @Column(name = "DNI_Cedula")
     private String dniCedula;
     private String cargo;
-    @Column(name = "Fecha_Contratacion")
-    private Date fechaContratacion;
     private String password;
 
 
     public EmpleadoModel() {
     }
 
-    public EmpleadoModel(Long idmpleado, String nombre, String apellido, String dniCedula, String cargo, Date fechaContratacion, String password) {
-        this.idmpleado = idmpleado;
+    public EmpleadoModel(Long idempleado, String nombre, String apellido, String dniCedula, String cargo, String password) {
+        this.idempleado = idempleado;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dniCedula = dniCedula;
         this.cargo = cargo;
-        this.fechaContratacion = fechaContratacion;
         this.password = password;
     }
 
-    public Long getIdmpleado() {
-        return idmpleado;
+    public Long getIdempleado() {
+        return idempleado;
     }
 
-    public EmpleadoModel setIdmpleado(Long idmpleado) {
-        this.idmpleado = idmpleado;
+    public EmpleadoModel setIdempleado(Long idempleado) {
+        this.idempleado = idempleado;
         return this;
     }
 
@@ -79,14 +77,6 @@ public class EmpleadoModel {
         return this;
     }
 
-    public Date getFechaContratacion() {
-        return fechaContratacion;
-    }
-
-    public EmpleadoModel setFechaContratacion(Date fechaContratacion) {
-        this.fechaContratacion = fechaContratacion;
-        return this;
-    }
 
     public String getPassword() {
         return password;
