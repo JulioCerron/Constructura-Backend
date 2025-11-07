@@ -10,7 +10,7 @@ public class loginDto {
     private String dniCedula;
 
     @NotBlank(message = "La contraseña es obligatoria.")
-    @Size(min = 8, message = "La contraseña debe tener al menos 8 caracteres.")
+    @Size(min = 8, message = "La contraseña debe tener al menos 8caracteres.")
     // Opcional: Para exigir al menos una mayúscula, minúscula y un número.
     // @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", message = "La contraseña no cumple con los requisitos de seguridad.")
     private String password;

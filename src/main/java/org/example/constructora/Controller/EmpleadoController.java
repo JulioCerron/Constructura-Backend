@@ -8,6 +8,7 @@ import org.example.constructora.Service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,8 +24,17 @@ public class EmpleadoController {
     @Autowired
     private EmpleadoService empleadoService;
 
+    @Autowired // ¡Nueva Inyección!
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping("/crear")
     public ResponseEntity<EmpleadoModel> createEmpleado(@Valid @RequestBody dtoEmpleado empleado) {
+
+        // Llamada al servicio para guardar el empleado.
+        // Asumo que el servicio devuelve el EmpleadoModel guardado.
+
+        String passwordEncriptada = passwordEncoder.encode(empleado.getPassword());
+        empleado.setPassword(passwordEncriptada);
 
         // Llamada al servicio para guardar el empleado.
         // Asumo que el servicio devuelve el EmpleadoModel guardado.
